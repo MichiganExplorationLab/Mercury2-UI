@@ -1,0 +1,7 @@
+*.pyc
+*.o
+*.so
+*.log
+local_settings.py
+
+logs/

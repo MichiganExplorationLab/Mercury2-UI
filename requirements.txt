@@ -1,0 +1,5 @@
+distribute
+psycopg2
+django
+djangorestframework==2.3.13
+django-allauth

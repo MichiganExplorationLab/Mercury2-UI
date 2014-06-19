@@ -1,0 +1,27 @@
+/*
+Mercury2 Text Style Definitions
+
+This file contains the CSS styles for text used throughout the user interface such as the global document font settings
+and links. 
+*/
+
+/***** Global Text Settings *****/
+body {
+  font: {
+    family: Tahoma, Geneva, sans-serif;
+    size: 68.75%;
+  }
+}
+
+/***** Link Styles *****/
+a {
+  text-decoration: underline;
+
+  &:visited {
+    color: #000000;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+}

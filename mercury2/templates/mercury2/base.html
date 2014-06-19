@@ -1,0 +1,21 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--[if lte IE 8]>
+      <link rel="stylesheet" href="{% static "css/grids-responsive-old-ie-min.css" %}">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+      <link rel="stylesheet" href="{% static "css/grids-responsive-min.css" %}">
+    <!--<![endif]-->
+    <link rel="stylesheet" type="text/css" href="{% static "css/pure-min.css" %}" />
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,100italic,300italic,400italic,500italic' rel='stylesheet' type='text/css'>
+    <script src="{% static "javascript/jquery-2.1.1.min.js" %}"></script>
+  </head>
+  <body>
+    {% block content %}{% endblock %}
+  </body>
+</html>
