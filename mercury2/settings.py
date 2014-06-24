@@ -9,35 +9,34 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 # Ground station specific settings (override in local_settings.py)
-SECRET_KEY = 'your-super-secret-key'
-ADMINS = (
-  ('Your Name', 'your.email@gmail.com')
-)
-MANAGERS = ADMINS
-DEBUG = True
-TEMPLATE_DEBUG = True
-DATABASES = {
-  'default': {
-    'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    'NAME': 'mercury2',                      
-    'USER': 'mercury2',
-    'PASSWORD': 'devpassword',
-    'HOST': ''
-  }
-}
+SECRET_KEY = 'your-super-duper-secret-key'
+DEBUG = False
+TEMPLATE_DEBUG = False
 
-# UI application configuration
+# Django project configuration
+SITE_ID = 1
+ROOT_URLCONF = 'mercury2.urls'
+WSGI_APPLICATION = 'mercury2.wsgi.application'
+AUTH_USER_MODEL = 'operators.StationUser'
+ALLOWED_HOSTS = []
+
+STATIC_URL = '/static/'
+
 INSTALLED_APPS = (
   # Mercury2 applications
   'mercury2',
+  'operators',
 
   # Django and external applications
+  'allauth',
+  'allauth.account',
+  'django.contrib.sites',
   'django.contrib.admin',
   'django.contrib.auth',
   'django.contrib.contenttypes',
   'django.contrib.sessions',
   'django.contrib.messages',
-  'django.contrib.staticfiles',
+  'django.contrib.staticfiles'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -46,15 +45,21 @@ MIDDLEWARE_CLASSES = (
   'django.middleware.csrf.CsrfViewMiddleware',
   'django.contrib.auth.middleware.AuthenticationMiddleware',
   'django.contrib.messages.middleware.MessageMiddleware',
-  'django.middleware.clickjacking.XFrameOptionsMiddleware',
+  'django.middleware.clickjacking.XFrameOptionsMiddleware'
 )
 
-ROOT_URLCONF = 'mercury2.urls'
-WSGI_APPLICATION = 'mercury2.wsgi.application'
+TEMPLATE_CONTEXT_PROCESSORS = (
+  "django.contrib.auth.context_processors.auth",
+  "django.core.context_processors.request",
+  "django.contrib.messages.context_processors.messages",
+  "allauth.account.context_processors.account",
+  "allauth.socialaccount.context_processors.socialaccount"
+)
 
-STATIC_URL = '/static/'
-
-ALLOWED_HOSTS = []
+AUTHENTICATION_BACKENDS = (
+  "django.contrib.auth.backends.ModelBackend",
+  "allauth.account.auth_backends.AuthenticationBackend"
+)
 
 # Internationalization options
 LANGUAGE_CODE = 'en-us'
@@ -62,6 +67,14 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
+
+# django-allauth configuration
+ACCOUNT_AUTHENTICATION_METHOD = "email"
+ACCOUNT_CONFIRM_EMAIL_ON_GET = False
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 7
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+ACCOUNT_USERNAME_MIN_LENGTH = 3
 
 # Logging configuration
 LOGGING = {

@@ -1,148 +1,99 @@
 /*
-Mercury2 Main Layout Style Definitions
+Mercury2 Top-Level User Interface Styles
 
-This SCSS file defines the top-level layout styles and containers used throughout Mercury2. It also imports some SCSS
-partials which contain the styles for different parts of the interface.
-
-@note Uses the CSS Sticky Footer technique: http://www.cssstickyfooter.com/
+This SCSS file defines the top-level layout styles and containers used throughout Mercury2. It also imports several SCSS
+partials that define common interface attributes.
 */
 
-/***** Imports *****/
-@import "partials/modules";
+@import "compass/layout/sticky-footer";
+@import "compass/css3/box-shadow";
 @import "partials/colors";
 @import "partials/general_text";
 @import "partials/dimensions";
-@import "partials/side_nav";
-@import "partials/top_nav";
-
-/***** Resets *****/
-html, body {
-  height: 100%;
-}
-
-.pure-g, .pure-g-r {
-  /* Fixes a bug that causes grid cells to wrap if a pure-g or pure-g-r containers inherits a non Arial font */
-  font-family: Arial !important;
-}
 
 /***** Main Layout Containers *****/
-#page_wrap {
-  min-height: 100%;
-}
+@include sticky-footer($footer_height, "#layout_wrapper", "#layout_wrapper_footer", "#footer");
 
-#page_offset {
-  overflow: auto;
-  padding-bottom: $footer_height;
-}
-
-#footer_wrap {
-  width: 100%;
+/***** Page Headers *****/
+#home_header {
   position: relative;
-  margin-top: -$footer_height;
-  background-color: $palate_dark;
-}
-
-/***** Header Bar *****/
-#header {
+  min-height: $home_header_height;
   width: 100%;
-  height: $header_height;
-  margin: 0px 0px 10px 0px;
-  border: $header_accent_bar_height solid $palate_main_alt {
-    width: $header_accent_bar_height 0px 0px 0px;
-  }
-  @include box-sizing(border-box);
-}
-  
-#header_container {
-  color: $palate_dark_alt;
-  width: $page_width;
-  height: 100%;
-  padding: 0px;
-  margin: auto;
-  @include box-sizing(border-box);
+  @include box-shadow(inset 0px -2px 2px rgba(23, 23, 23, .25));
 }
 
-#header_logo {
-  padding-top: 15px;
-  border-radius: 5px;
-
-  a {
-    color: inherit;
-    font: {
-      family: Verdana, Geneva, sans-serif;
-      size: 1.55em;
-    }
-    text-decoration: none;
-
-    &:hover {
-      @include transition-property(color);
-      @include transition-duration(.2s);
-      @include transition-timing-function(linear);
-      color: $palate_main_alt;
-    }
-  }
-}
-
-#header_subtext {
-  display: inline-block;
-  padding: 0px 0px 0px 20px;
-  font-size: 1.1em;
-}
-
-/***** Content Section *****/
-#content {
-  width: $page_width;
-  margin: 0px auto 0px auto;
-}
-
-#content_left_padding {
-  width: 100%;
-  padding: 0px 0px 0px 20px;
-  @include box-sizing(border-box);
+/***** Page Content *****/
+.content_container {
+  max-width: $content_width;
+  margin: 0 auto 0 auto;
+  padding: 15px $content_side_padding 15px $content_side_padding;
 }
 
 /***** Footer Bar *****/
 #footer {
-  color: $very_light_grey !important;
-  margin: $footer_top_padding auto 0px auto;
-  padding: 15px;
-  border-width: 1px 0px 0px 0px;
-  width: $page_width;
-  text-align: center;
-  height: $footer_container_height;
-  @include box-sizing(border-box);
-}
+  background-color: $footer_background;
+  color: $footer_text;
 
-#footer ul {
-  margin: 0px;
-  padding: 0px;
+  .title {
+    font: {
+      family: 'Roboto', sans-serif;
+      size: 1.5em;
+      weight: 300;
+    }
+  }
 
-  li {
-    display: inline;
+  ul.links {
     list-style-type: none;
-    margin: 0px 10px 0px 10px;
-    color: $palate_main_alt;
-    
-    a {
-      color: $palate_main_alt;
-      text-decoration: none;
-      font-size: 1.18em;
+    padding: 0;
+    margin: 10px 0 0 0;
+  }
 
-      &:visited {
-        color: $palate_main_alt;
-      }
+  ul.links li {
+    font: {
+      size: 1.3em;
+      weight: 300;
+    }
+    display: inline;
+    margin-right: 15px;
+  }
 
-      &:hover {
-        color: $palate_main_alt_hover;
-      }
+  a {
+    text-decoration: none;
+    color: $footer_link;
+
+    &:visited {
+      color: $footer_link;
+    }
+
+    &:hover {
+      color: $footer_link_hover;
     }
   }
 }
 
-#copyright_notice {
-  margin-top: 20px;
+#footer_left, #footer_right {
+  text-align: center;
+}
 
-  a {
-    color: $very_light_grey;
+#mercury2_notice {
+  font: {
+    size: 1.3em;
+    weight: 300;
+  }
+  color: #eeeeee;
+  margin-top: 0;
+}
+
+@media screen and (min-width: 48em){
+  #footer_left {
+    text-align: left;
+  }
+
+  #footer_right {
+    text-align: right;
+  }
+
+  #mercury2_notice {
+    margin-top: 32px;
   }
 }

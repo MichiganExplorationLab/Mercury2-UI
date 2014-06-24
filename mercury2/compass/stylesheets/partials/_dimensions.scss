@@ -1,13 +1,10 @@
 /*
-Mercury2 Layout Dimension Styles 
+Mercury2 Layout Dimensions 
 
-This SCSS file contains the dimensions of layout elements used throughout Mercury2.
+This file contains the dimensions of various layout elements used throughout Mercury2.
 */
 
-/***** Main Container Dimensions *****/
-$page_width: 960px;
-$header_height: 58px;
-$header_accent_bar_height: 8px;
-$footer_top_padding: 25px;
-$footer_container_height: 80px;
-$footer_height: $footer_top_padding+$footer_container_height;
+$content_width: 960px;
+$content_side_padding: 10px;
+$home_header_height: 500px;
+$footer_height: 80px;
