@@ -6,3 +6,4 @@ local_settings.py
 
 logs/
 .sass-cache/
+__pycache__/

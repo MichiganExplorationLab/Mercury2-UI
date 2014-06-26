@@ -1,4 +1,4 @@
-## Mercury2 Compass CSS pre-processor configuration
+## Mercury2 Compass SASS pre-processor configuration
 #
 # This file contains the configuration settings for the Compass CSS pre-processor. Compass is used to generate static,
 # minimized CSS files based on a set of .scss files.

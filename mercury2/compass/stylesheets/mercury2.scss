@@ -8,8 +8,8 @@ partials that define common interface attributes.
 @import "compass/layout/sticky-footer";
 @import "compass/css3/box-shadow";
 @import "partials/colors";
-@import "partials/general_text";
 @import "partials/dimensions";
+@import "partials/general_text";
 
 /***** Main Layout Containers *****/
 @include sticky-footer($footer_height, "#layout_wrapper", "#layout_wrapper_footer", "#footer");
@@ -22,44 +22,120 @@ partials that define common interface attributes.
   @include box-shadow(inset 0px -2px 2px rgba(23, 23, 23, .25));
 }
 
+#header {
+  width: 100%;
+  margin: {
+    bottom: 25px;
+  }
+
+  .content_container {
+    padding: {
+      top: 25px;
+      bottom: 25px;
+    }
+
+    border: {
+      width: 1px;
+      style: solid;
+      color: $header_border;
+      width: 0 0 1px 0;
+    }
+  }
+
+  .left, .right {
+    text-align: center;
+  }
+}
+
+.header_title {
+  font: {
+    family: $title_fonts;
+    size: 32px;
+    weight: 100;
+  }
+}
+
+.header_title a {
+  text-decoration: none;
+  transition: color 0.2s ease 0s;
+
+  &:hover {
+    color: $alt_link_hover;
+    transition: color 0.2s ease 0s;
+  }
+}
+
+ul.header_links {
+  list-style-type: none;
+  padding: 0;
+  margin: 12px 0 0 0;
+}
+
+ul.header_links li {
+  font: {
+    size: 1.8em;
+    weight: 300;
+  }
+  display: inline;
+  margin-right: 25px;
+}
+
+ul.header_links li:last-of-type {
+  margin-right: 0;
+}
+
+.header_links a {
+  text-decoration: none;
+  color: $header_link;
+  font-family: $title_fonts;
+
+  &:visited {
+    color: $header_link;
+  }
+
+  &:hover {
+    color: $header_link_hover;
+  }
+}
+
+@media screen and (min-width: 48em){
+  #header {
+    .left {
+      text-align: left;
+    }
+
+    .right {
+      text-align: right;
+    }
+  }
+
+  ul.header_links li {
+    font: {
+      size: 1.6em;
+    }
+  }
+}
+
 /***** Page Content *****/
 .content_container {
   max-width: $content_width;
   margin: 0 auto 0 auto;
-  padding: 15px $content_side_padding 15px $content_side_padding;
+  padding: $content_container_padding;
 }
 
 /***** Footer Bar *****/
 #footer {
   background-color: $footer_background;
   color: $footer_text;
-
-  .title {
-    font: {
-      family: 'Roboto', sans-serif;
-      size: 1.5em;
-      weight: 300;
-    }
-  }
-
-  ul.links {
-    list-style-type: none;
-    padding: 0;
-    margin: 10px 0 0 0;
-  }
-
-  ul.links li {
-    font: {
-      size: 1.3em;
-      weight: 300;
-    }
-    display: inline;
-    margin-right: 15px;
+  font: {
+    size: 1.4em;
+    weight: 300;
   }
 
   a {
     text-decoration: none;
     color: $footer_link;
+    font-family: $title_fonts;
 
     &:visited {
       color: $footer_link;
@@ -71,29 +147,50 @@ partials that define common interface attributes.
   }
 }
 
-#footer_left, #footer_right {
+.footer_title {
   text-align: center;
+  margin: 0 0 8px 0;
+  font: {
+    family: $title_fonts;
+    size: 1.3em;
+  }
+}
+
+ul.footer_links {
+  text-align: center;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul.footer_links li {
+  display: inline;
+  margin-right: 15px;
+}
+
+ul.footer_links li:last-of-type {
+  margin-right: 0;
 }
 
 #mercury2_notice {
-  font: {
-    size: 1.3em;
-    weight: 300;
-  }
-  color: #eeeeee;
-  margin-top: 0;
+  text-align: center;
+  margin-top: 8px;
+  font-family: $title_fonts;
+  font-style: italic;
 }
 
 @media screen and (min-width: 48em){
-  #footer_left {
+  .footer_title {
+    text-align: left;
+    margin: 13px 0 10px 0;
+  }
+
+  ul.footer_links {
     text-align: left;
   }
 
-  #footer_right {
-    text-align: right;
-  }
-
   #mercury2_notice {
-    margin-top: 32px;
+    text-align: right;
+    margin-top: 0;
   }
 }

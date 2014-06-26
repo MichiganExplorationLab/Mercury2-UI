@@ -1,5 +1,7 @@
 {% extends "mercury2/base.html" %}
 
+{% load i18n %}
+
 {% block body_content %}
 <div id="layout_wrapper">
   {% block layout_content %}{% endblock %}
@@ -8,20 +10,20 @@
 <footer id="footer">
   <div class="content_container">
     <div class="pure-g">
-      <div class="pure-u-1 pure-u-md-1-2">
-        <div id="footer_left">
-          <span class="title">Station operated by MXL</span>
-          <ul class="links">
-            <li><a href="#">Ground Station Overview</a></li>
-            <li><a href="#">Contact Us</a></li>
-          </ul>
+      <div class="pure-u-1">
+        <div class="footer_title">
+          {% trans "Station operated by" %} MXL
         </div>
       </div>
       <div class="pure-u-1 pure-u-md-1-2">
-        <div id="footer_right">
-          <div id="mercury2_notice">
-            Powered by <a href="https://github.com/MichiganExplorationLab" target="_blank">Mercury2</a>
-          </div>
+        <ul class="footer_links">
+          <li><a href="#">{% trans "Ground Station Overview" %}</a></li>
+          <li><a href="#">{% trans "Contact Us" %}</a></li>
+        </ul>
+      </div>
+      <div class="pure-u-1 pure-u-md-1-2">
+        <div id="mercury2_notice">
+          {% trans "Powered by" %} <a href="https://github.com/MichiganExplorationLab" target="_blank">Mercury2</a>
         </div>
       </div>
     </div>

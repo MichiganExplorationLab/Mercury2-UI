@@ -5,32 +5,34 @@ This file contains the CSS styles for text used throughout the user interface su
 and links. 
 */
 
-$default_fonts: Verdana, FreeSans, Arial, sans-serif;
+$title_fonts: 'Roboto', sans-serif;
+$content_fonts: Verdana, FreeSans, Arial, sans-serif;
 
 /***** Global Text Settings *****/
 body {
   font: {
-    family: $default_fonts;
+    family: $content_fonts;
     size: 62.5%;
   }
 }
 
 html, button, input, select, textarea, .pure-g [class *= "pure-u"]{
   font: {
-    family: $default_fonts;
+    family: $content_fonts;
   }
 }
 
 /***** Links *****/
 a {
   text-decoration: underline;
-  color: $standard_link_color;
+  color: $standard_link;
 
   &:visited {
-    color: $standard_link_color;
+    color: $standard_link;
   }
 
   &:hover {
     text-decoration: none;
+    color: $standard_link_hover;
   }
 }

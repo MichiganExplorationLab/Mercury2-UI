@@ -9,6 +9,6 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
   url(r'^$', 'mercury2.views.home', name='home'),
-  url(r'^users/', include('operators.urls')),
+  url(r'^users/', include('allauth.urls')),
   url(r'^admin/', include(admin.site.urls)),
 )

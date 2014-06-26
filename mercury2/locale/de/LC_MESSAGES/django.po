@@ -1,0 +1,55 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-06-25 22:52-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: mercury2/templates/mercury2/standard.html:19
+msgid "Create Reservation"
+msgstr ""
+
+#: mercury2/templates/mercury2/standard.html:20
+msgid "Your Account"
+msgstr ""
+
+#: mercury2/templates/mercury2/standard.html:21
+msgid "Logout"
+msgstr ""
+
+#: mercury2/templates/mercury2/standard.html:23
+msgid "Login"
+msgstr ""
+
+#: mercury2/templates/mercury2/standard.html:24
+msgid "Signup"
+msgstr ""
+
+#: mercury2/templates/mercury2/sticky_footer.html:15
+msgid "Station operated by"
+msgstr ""
+
+#: mercury2/templates/mercury2/sticky_footer.html:20
+msgid "Ground Station Overview"
+msgstr ""
+
+#: mercury2/templates/mercury2/sticky_footer.html:21
+msgid "Contact Us"
+msgstr ""
+
+#: mercury2/templates/mercury2/sticky_footer.html:26
+msgid "Powered by"
+msgstr ""

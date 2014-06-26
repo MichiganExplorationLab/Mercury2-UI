@@ -12,6 +12,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'your-super-duper-secret-key'
 DEBUG = False
 TEMPLATE_DEBUG = False
+LANGUAGE_CODE = 'en-us'
+TIME_ZONE = 'America/Detroit'
 
 # Django project configuration
 SITE_ID = 1
@@ -45,11 +47,13 @@ MIDDLEWARE_CLASSES = (
   'django.middleware.csrf.CsrfViewMiddleware',
   'django.contrib.auth.middleware.AuthenticationMiddleware',
   'django.contrib.messages.middleware.MessageMiddleware',
-  'django.middleware.clickjacking.XFrameOptionsMiddleware'
+  'django.middleware.clickjacking.XFrameOptionsMiddleware',
+  'django.middleware.locale.LocaleMiddleware'
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
   "django.contrib.auth.context_processors.auth",
+  "django.core.context_processors.i18n",
   "django.core.context_processors.request",
   "django.contrib.messages.context_processors.messages",
   "allauth.account.context_processors.account",
@@ -62,8 +66,9 @@ AUTHENTICATION_BACKENDS = (
 )
 
 # Internationalization options
-LANGUAGE_CODE = 'en-us'
-TIME_ZONE = 'UTC'
+LOCALE_PATHS = (
+  os.path.join(os.path.dirname(__file__), "locale"),
+)
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True

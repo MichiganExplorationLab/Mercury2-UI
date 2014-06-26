@@ -1,18 +1,22 @@
 /*
 Mercury2 Color Definitions
 
-This SCSS file contains the base color definitions used throughout Mercury2, including the main template color palate.
+This SCSS file defines the various colors commonly used throughout the Mercury2 user interface.
 */
 
+/***** General Text *****/
+$text_headers: #292929;
+$standard_link: black;
+$standard_link_hover: #666666;
+$alt_link_hover: #3498db;
+
 /***** Header *****/
-$header_background: #3498db;
+$header_link: black;
+$header_link_hover: $alt_link_hover;
+$header_border: #E5E5E5;
 
 /***** Footer *****/
-$footer_background: #171717;
+$footer_background: #3A3A3A;
 $footer_text: white;
 $footer_link: white;
-$footer_link_hover: $header_background;
-
-/***** General Text *****/
-$standard_link_color: black;
-$text_headers: #292929;
+$footer_link_hover: $alt_link_hover;
