@@ -10,6 +10,7 @@ partials that define common interface attributes.
 @import "partials/colors";
 @import "partials/dimensions";
 @import "partials/general_text";
+@import "partials/forms";
 
 /***** Main Layout Containers *****/
 @include sticky-footer($footer_height, "#layout_wrapper", "#layout_wrapper_footer", "#footer");
@@ -121,6 +122,10 @@ ul.header_links li:last-of-type {
   max-width: $content_width;
   margin: 0 auto 0 auto;
   padding: $content_container_padding;
+}
+
+#layout_wrapper_footer {
+  margin-top: $footer_top_margin;
 }
 
 /***** Footer Bar *****/

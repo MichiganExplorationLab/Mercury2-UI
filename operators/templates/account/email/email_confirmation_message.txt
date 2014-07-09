@@ -1,0 +1,9 @@
+{% load i18n %}{% load account %}{% autoescape off %}{% user_display user as user_display %}{% blocktrans with current_site.name as site_name %}Hey {{ user_display }},
+Thank you for joining our ground station!
+
+Before you can make reservations, you will need to confirm your email address using the link below.
+
+{{ activate_url }}
+
+- The {{ site_name }} team
+{% endblocktrans %}{% endautoescape %}
