@@ -1,0 +1,56 @@
+{% extends "mercury2/standard.html" %}
+
+{% load i18n %}
+{% load account %}
+
+{% block title %}{% trans "Confirm Your Email" %}{% endblock %}
+
+{% block page_content %}
+<div class="content_container">
+  <h1 class="page_title">{% trans "Confirm Your Email Address" %}</h1>
+
+  <div class="pure-g">
+    <div class="pure-u-1 pure-u-md-1-2">
+      {% if confirmation %}
+        {% user_display confirmation.email_address.user as user_display %}
+          
+        <p class="form_instructions">
+          {% blocktrans with confirmation.email_address.email as email %}
+          Hey {{ user_display }}, please confirm that <a href="mailto:{{email}}" target="_blank">{{ email }}</a> is
+          your email address by clicking the button below.
+          {% endblocktrans %}
+        </p>
+
+        <form class="pure-form pure-form-stacked standard" method="POST" action="{% url 'account_confirm_email' confirmation.key %}">
+          {% csrf_token %}
+
+          {% if form.non_field_errors %}
+            <div class="form_errors">
+              {{ form.non_field_errors }}
+            </div>
+          {% endif %}
+          
+          <div class="button_container">
+            <button class="pure-button pure-button-primary button_standard" type="submit">{% trans "Confirm Your Email" %}</button>
+          </div>
+        </form>
+      {% else %}
+        <p class="form_instructions">
+          {% url 'account_reset_password' as email_url %}
+          {% blocktrans %}
+          Your email confirmation link is invalid. Please <a href="#">request a new confirmation link</a> to
+          try again. If you keep having trouble signing up, please contact us.
+          {% endblocktrans %}
+        </p>
+      {% endif %}
+
+      <ul class="form_links">
+        <li><a href="{% url 'account_login' %}">{% trans "Login" %}</a></li>
+        <li><a href="{% url 'account_signup' %}">{% trans "Create an account" %}</a></li>
+      </ul>
+    </div>
+    <div class="pure-u-1 pure-u-md-1-2">
+    </div>
+  </div>
+</div>
+{% endblock %}

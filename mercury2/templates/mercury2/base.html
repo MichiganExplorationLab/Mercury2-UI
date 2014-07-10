@@ -15,6 +15,13 @@
     <link rel="stylesheet" type="text/css" href="{% static "css/mercury2.css" %}" />
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,100italic,300italic,400italic,500italic' rel='stylesheet' type='text/css'>
     <script src="{% static "javascript/jquery-2.1.1.min.js" %}"></script>
+    
+    <!-- Define CSS styles that require Django template tags -->
+    <style type="text/css">
+    ul.errorlist li {
+      background-image: url('{% static "images/icons/bullet_error.png" %}');
+    }
+    </style>
   </head>
   <body>
     {% block body_content %}{% endblock %}

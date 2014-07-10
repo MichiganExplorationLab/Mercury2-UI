@@ -1,0 +1,92 @@
+/*
+Mercury2 Form Style Definitions
+
+This file contains the styles for forms used throughout the Mercury2 user interface.
+*/
+
+/***** Button and input element styles *****/
+.button_standard {
+  background: $color_1;
+  font-size: 1.4em;
+  padding: 14px;
+}
+
+.button_container {
+  margin: 20px 0 20px 0;
+}
+
+p.form_instructions {
+  margin-top: 0;
+}
+
+form.standard {
+  p.help_text {
+    color: $color_4;
+    font-size: 1.2em;
+    margin: 10px 0 10px 0;
+  }
+
+  label {
+    display: block;
+    font: {
+      family: $title_fonts;
+      size: 1.5em;
+      weight: 300;
+    }
+    margin: {
+      top: 15px;
+      bottom: 8px;
+    }
+  }
+
+  label:first-of-type {
+    margin-top: 0px;
+  }
+
+  .form_errors {
+    margin: 0 0 20px 0;
+  }
+
+  input[type="text"], input[type="password"], input[type="email"] {
+    box-shadow: none;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 0;
+    color: #808080;
+    transition: all 0.3s ease 0s;
+    border: {
+      width: 1px 1px 2px 1px;
+      style: solid;
+      color: #DDDDDD;
+    }
+  }
+
+  input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus {
+    color: $input_focus;
+    border-color: $input_focus;  
+  }
+
+  .pure-checkbox {
+    margin: 15px 0 15px 0;
+    font-size: 1.3em;
+
+    input {
+      position: relative;
+      top: 3px;
+    }
+  }
+
+  .pure-group input {
+    border-width: 1px;
+    margin: 0;
+  }
+
+  .pure-group input:first-child {
+    border-radius: 0;
+  }
+
+  .pure-group input:last-child {
+    border-radius: 0;
+    border-width: 1px 1px 2px 1px;
+  }
+}

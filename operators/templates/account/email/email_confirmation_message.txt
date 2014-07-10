@@ -1,0 +1,7 @@
+{% load i18n %}{% load account %}{% autoescape off %}{% user_display user as user_display %}{% blocktrans with current_site.name as site_name %}Hey {{ user_display }},
+To confirm your new email address please follow the link below.
+
+{{ activate_url }}
+
+- The {{ site_name }} team
+{% endblocktrans %}{% endautoescape %}
