@@ -1,5 +1,7 @@
 {% load i18n %}{% load account %}{% autoescape off %}{% user_display user as user_display %}{% blocktrans with current_site.name as site_name %}Hey {{ user_display }},
-To confirm your new email address please follow the link below.
+Thank you for joining our ground station!
+
+Before you can make reservations, you will need to confirm your email address using the link below.
 
 {{ activate_url }}
 

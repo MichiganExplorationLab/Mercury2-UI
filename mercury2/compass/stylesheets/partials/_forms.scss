@@ -12,7 +12,11 @@ This file contains the styles for forms used throughout the Mercury2 user interf
 }
 
 .button_container {
-  margin: 15px 0 20px 0;
+  margin: 20px 0 20px 0;
+}
+
+p.form_instructions {
+  margin-top: 0;
 }
 
 form.standard {
@@ -46,8 +50,10 @@ form.standard {
   input[type="text"], input[type="password"], input[type="email"] {
     box-shadow: none;
     padding: 10px;
+    margin: 10px 0;
     border-radius: 0;
     color: #808080;
+    transition: all 0.3s ease 0s;
     border: {
       width: 1px 1px 2px 1px;
       style: solid;
@@ -57,7 +63,7 @@ form.standard {
 
   input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus {
     color: $input_focus;
-    border-color: $input_focus;
+    border-color: $input_focus;  
   }
 
   .pure-checkbox {
@@ -72,6 +78,7 @@ form.standard {
 
   .pure-group input {
     border-width: 1px;
+    margin: 0;
   }
 
   .pure-group input:first-child {
