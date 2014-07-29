@@ -16,9 +16,9 @@ TEMPLATE_DEBUG = False
 DATABASES = {
   'default': {
     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    'NAME': 'db-database',                      
-    'USER': 'db-username',
-    'PASSWORD': 'db-password',
+    'NAME': 'mercury2',
+    'USER': 'mercury2',
+    'PASSWORD': 'dbpassword',
     'HOST': 'localhost'
   }
 }
