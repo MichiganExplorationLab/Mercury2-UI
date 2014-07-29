@@ -28,6 +28,7 @@ INSTALLED_APPS = (
   # Mercury2 applications
   'mercury2',
   'operators',
+  'substations',
 
   # Django and external applications
   'allauth',
