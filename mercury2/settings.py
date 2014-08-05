@@ -27,6 +27,7 @@ STATIC_URL = '/static/'
 INSTALLED_APPS = (
   # Mercury2 applications
   'mercury2',
+  'administration',
   'operators',
   'substations',
 

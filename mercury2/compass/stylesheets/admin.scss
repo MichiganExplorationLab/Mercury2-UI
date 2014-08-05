@@ -1,0 +1,86 @@
+/*
+Mercury2 Administration Panel Styles
+
+This SCSS file defines the custom styles for the Mercury2 UI administration panel.
+*/
+
+@import "partials/colors";
+@import "partials/glyphicons";
+
+li, dt, dd {
+  line-height: inherit;
+}
+
+div.breadcrumbs {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  margin-bottom: 10px;
+  color: $help_text;
+  font: {
+    size: 1.3em;
+    style: italic;
+  }
+
+  a {
+    font-style: normal;
+
+    &:hover {
+      color: $alt_link_hover; 
+    }
+  }
+}
+
+#content-related {
+  float: none;
+  box-sizing: border-box;
+  margin: 0;
+  padding-left: 5px;
+  width: 100%;
+}
+
+#changelist-filter {
+  background: transparent;
+  position: relative;
+  width: 100%;
+}
+
+.change-list .filtered .results, .change-list .filtered .paginator, .filtered #toolbar, .filtered div.xfull {
+  margin-right: 0 !important;
+}
+
+#toolbar {
+  margin-right: 0px;
+}
+
+/***** Navigation *****/
+ul.nav_list {
+  padding: 0;
+  margin: 0 5px 0 5px;
+
+  li {
+    font-size: 1.3em;
+    list-style-type: none;
+    margin: 6px 0 6px 0;
+    padding: 0;
+  }
+
+  li:first-child {
+    margin-top: 0;
+  }
+
+  li:hover {
+    color: $nav_link_hover;
+    cursor: pointer;
+    border: 1px solid $nav_link_hover;
+    border-width: 0 4px 0 0;
+    transition: color 0.2s ease 0s;
+    transition: border 0.1s ease 0s;
+  }
+}
+
+ul.sub_nav_list {
+  display: none;
+  padding: 0;
+  margin: 0;
+}

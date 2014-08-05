@@ -9,7 +9,7 @@ partials that define common interface attributes.
 @import "compass/css3/box-shadow";
 @import "partials/colors";
 @import "partials/dimensions";
-@import "partials/general_text";
+@import "partials/text";
 @import "partials/forms";
 
 /***** Main Layout Containers *****/
@@ -18,7 +18,7 @@ partials that define common interface attributes.
 /***** Page Headers *****/
 #home_header {
   position: relative;
-  min-height: $home_header_height;
+  min-height: $header_height_home;
   width: 100%;
   @include box-shadow(inset 0px -2px 2px rgba(23, 23, 23, .25));
 }
@@ -26,13 +26,15 @@ partials that define common interface attributes.
 #header {
   width: 100%;
   margin: {
-    bottom: 25px;
+    bottom: $header_vertical_spacing;
   }
+  color: $header_link;
+  background-color: transparent;
 
   .content_container {
     padding: {
-      top: 25px;
-      bottom: 25px;
+      top: $header_vertical_spacing;
+      bottom: $header_vertical_spacing;
     }
 
     border: {
@@ -46,6 +48,19 @@ partials that define common interface attributes.
   .left, .right {
     text-align: center;
   }
+
+  a {
+    font-family: $title_fonts;
+
+    &:link, &:visited {
+      color: $header_link;
+    }
+
+    &:hover {
+      text-decoration: none;
+      color: $header_link_hover;
+    }
+  }
 }
 
 .header_title {
@@ -57,12 +72,23 @@ partials that define common interface attributes.
 }
 
 .header_title a {
+  color: $header_link;
   text-decoration: none;
   transition: color 0.2s ease 0s;
 
   &:hover {
     color: $alt_link_hover;
     transition: color 0.2s ease 0s;
+  }
+}
+
+.tagline {
+  display: block;
+  color: #666666;
+  font: {
+    family: $title_fonts;
+    size: 1.6em;
+    weight: 300;
   }
 }
 
@@ -81,22 +107,12 @@ ul.header_links li {
   margin-right: 25px;
 }
 
-ul.header_links li:last-of-type {
-  margin-right: 0;
+ul.header_links li a:link {
+  text-decoration: none;
 }
 
-.header_links a {
-  text-decoration: none;
-  color: $header_link;
-  font-family: $title_fonts;
-
-  &:visited {
-    color: $header_link;
-  }
-
-  &:hover {
-    color: $header_link_hover;
-  }
+ul.header_links li:last-of-type {
+  margin-right: 0;
 }
 
 @media screen and (min-width: 48em){
@@ -130,6 +146,7 @@ ul.header_links li:last-of-type {
 
 /***** Footer Bar *****/
 #footer {
+  padding: 0px;
   background-color: $footer_background;
   color: $footer_text;
   font: {
@@ -171,6 +188,7 @@ ul.footer_links {
 ul.footer_links li {
   display: inline;
   margin-right: 15px;
+  font-size: 1em;
 }
 
 ul.footer_links li:last-of-type {
