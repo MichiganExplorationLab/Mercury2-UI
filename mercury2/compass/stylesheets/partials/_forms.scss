@@ -4,15 +4,41 @@ Mercury2 Form Style Definitions
 This file contains the styles for forms used throughout the Mercury2 user interface.
 */
 
+@import "partials/text";
+
 /***** Button and input element styles *****/
-.button_standard {
-  background: $color_1;
-  font-size: 1.4em;
-  padding: 14px;
+.text_field {
+  background-color: white;
+  box-shadow: none;
+  padding: 5px;
+  margin: 5px 0;
+  border-radius: 0;
+  color: #808080;
+  transition: all 0.3s ease 0s;
+  border: {
+    width: 1px 1px 2px 1px;
+    style: solid;
+    color: #DDDDDD;
+  }
+
+  &:focus {
+    color: $input_focus;
+    border-color: $input_focus;
+  }
+}
+
+input[type="text"], input[type="password"], input[type="email"] {
+  @extend .text_field
 }
 
 .button_container {
   margin: 20px 0 20px 0;
+}
+
+.button_standard {
+  background: $color_1;
+  font-size: 1.4em;
+  padding: 14px;
 }
 
 p.form_instructions {
@@ -48,22 +74,8 @@ form.standard {
   }
 
   input[type="text"], input[type="password"], input[type="email"] {
-    box-shadow: none;
     padding: 10px;
     margin: 10px 0;
-    border-radius: 0;
-    color: #808080;
-    transition: all 0.3s ease 0s;
-    border: {
-      width: 1px 1px 2px 1px;
-      style: solid;
-      color: #DDDDDD;
-    }
-  }
-
-  input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus {
-    color: $input_focus;
-    border-color: $input_focus;  
   }
 
   .pure-checkbox {

@@ -4,12 +4,6 @@
 {% load staticfiles %}
 {% load admin_static %}
 
-{% block extrastyle %}
-{{ block.super }}
-<link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% static "admin/css/base.css" %}{% endblock %}" />
-{% if LANGUAGE_BIDI %}<link rel="stylesheet" type="text/css" href="{% block stylesheet_rtl %}{% static "admin/css/rtl.css" %}{% endblock %}" />{% endif %}
-{% endblock %}
-
 {% block extrahead %}
 <link rel="stylesheet" type="text/css" href="{% static "css/admin.css" %}" />
 <script type="text/javascript">window.__admin_media_prefix__ = "{% filter escapejs %}{% static "admin/" %}{% endfilter %}";</script>
@@ -20,15 +14,6 @@
 
 {% block page_content %}
 <div class="content_container">
-  {% if not is_popup %}
-    {% block breadcrumbs %}
-      <div class="breadcrumbs">
-        <a href="{% url 'admin:index' %}">{% trans 'Dashboard' %}</a>
-        {% if title %} &rsaquo; {{ title }}{% endif %}
-      </div>
-    {% endblock %}
-  {% endif %}
-
   {% block messages %}
     {% if messages %}
       <ul class="messagelist">
@@ -44,6 +29,15 @@
       {% include "admin/includes/navigation.html" %}
     </div>
     <div class="pure-u-1 pure-u-sm-3-4 pure-u-md-4-5">
+      {% if not is_popup %}
+        {% block breadcrumbs %}
+          <div class="breadcrumbs">
+            <a href="{% url 'admin:index' %}">{% trans 'Dashboard' %}</a>
+            {% if title %} &rsaquo; {{ title }}{% endif %}
+          </div>
+        {% endblock %}
+      {% endif %}
+
       {% block content %}
         {% block object-tools %}{% endblock %}
         {{ content }}
