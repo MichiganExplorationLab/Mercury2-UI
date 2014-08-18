@@ -1,0 +1,13 @@
+{% load i18n %}
+
+<select class="list_filter">
+  {% for choice in choices %}
+    <option {% if choice.selected %}selected{% endif %} data-name="{{ choice.query_string|iriencode }}">
+      {% if choice.display == "All" %}
+        {{ title|capfirst }}
+      {% else %}
+        {{ choice.display }}
+      {% endif %}
+    </option>
+  {% endfor %}
+</select>

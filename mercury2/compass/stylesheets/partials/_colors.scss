@@ -9,16 +9,15 @@ $color_1: #3492CD; // Light blue for accents, link hovers, etc.
 $color_2: #3A3A3A; // Blue-gray background for the footer section
 $color_3: #292929; // Dark gray for page headers, etc.
 $color_4: #666666; // Light gray for help text, notices, etc.
+$color_5: #BAC8C9; // Lighter blue-gray
 
-/***** General Text *****/
+/***** Global Text *****/
 $text_headers: $color_3;
+$help_text: $color_4;
+$error_text: #C40808;
 $standard_link: black;
 $standard_link_hover: $color_4;
 $alt_link_hover: $color_1;
-$error_text: #C40808;
-
-/***** Forms *****/
-$input_focus: $color_1;
 
 /***** Header *****/
 $header_link: black;
@@ -30,3 +29,9 @@ $footer_background: $color_2;
 $footer_text: white;
 $footer_link: white;
 $footer_link_hover: $alt_link_hover;
+
+/***** Forms *****/
+$input_focus: $color_1;
+
+/***** Admin Panel *****/
+$nav_link_hover: $color_1;

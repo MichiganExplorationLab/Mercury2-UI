@@ -25,7 +25,7 @@
 
         <label for="{{ form.password.id_for_label }}">{% trans "Password" %}</label>
         {{ form.password.errors }}
-        <input id="{{ form.password.id_for_label }}" type="text" class="pure-input-1-2" placeholder="Your Password" name="{{ form.password.html_name }}" maxlength="30">
+        <input id="{{ form.password.id_for_label }}" type="password" class="pure-input-1-2" placeholder="Your Password" name="{{ form.password.html_name }}" maxlength="30">
 
         <label for="{{ form.remember.id_for_label }}" class="pure-checkbox">
           <input id="{{ form.remember.id_for_label }}" type="checkbox" name="{{ form.remember.html_name }}"> {% trans "Remember me?" %}

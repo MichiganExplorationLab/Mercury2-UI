@@ -17,6 +17,7 @@ TIME_ZONE = 'America/Detroit'
 
 # Django project configuration
 SITE_ID = 1
+AUTH_USER_MODEL = 'operators.StationUser'
 ROOT_URLCONF = 'mercury2.urls'
 WSGI_APPLICATION = 'mercury2.wsgi.application'
 AUTH_USER_MODEL = 'operators.StationUser'
@@ -27,6 +28,7 @@ STATIC_URL = '/static/'
 INSTALLED_APPS = (
   # Mercury2 applications
   'mercury2',
+  'administration',
   'operators',
   'substations',
 
