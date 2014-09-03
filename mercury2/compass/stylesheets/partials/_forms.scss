@@ -4,10 +4,9 @@ Mercury2 Form Style Definitions
 This file contains the styles for forms used throughout the Mercury2 user interface.
 */
 
-@import "partials/text";
-
 /***** Button and input element styles *****/
 .text_field {
+  line-height: auto;
   background-color: white;
   box-shadow: none;
   padding: 5px;
@@ -31,12 +30,19 @@ input[type="text"], input[type="password"], input[type="email"] {
   @extend .text_field
 }
 
+form.pure-form, form.pure-form-stacked, form.standard {
+  input[type="text"], input[type="password"], input[type="email"] {
+    @extend .text_field
+  }
+}
+
 .button_container {
   margin: 20px 0 20px 0;
 }
 
 .button_standard {
   background: $color_1;
+  color: white;
   font-size: 1.4em;
   padding: 14px;
 }
@@ -45,6 +51,7 @@ p.form_instructions {
   margin-top: 0;
 }
 
+/***** Django allauth form styles *****/
 form.standard {
   p.help_text {
     color: $color_4;

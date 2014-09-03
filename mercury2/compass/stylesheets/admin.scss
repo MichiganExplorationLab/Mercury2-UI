@@ -5,52 +5,16 @@ This SCSS file defines the custom styles for the Mercury2 UI administration pane
 */
 
 @import "compass";
+@import "partials/text";
 @import "partials/colors";
 @import "partials/glyphicons";
-@import "partials/forms";
-
-li, dt, dd {
-  line-height: inherit;
-}
-
-/***** Forms *****/
-form.admin_filters {
-  select {
-    vertical-align:top;
-  }
-
-  #searchbar {
-    width: 150px;
-  }
-}
-
-input[type="text"], input[type="password"], input[type="email"], select {
-  @extend .text_field;
-}
-
-select.list_filter {
-  margin: 0;
-  padding: 4px;
-}
-
-#changelist .actions select {
-  @extend .text_field;
-  margin: 0;
-  padding: 4px;
-}
-
-.button_admin_changelist {
-  background: $color_1;
-  padding: 6px;
-  margin-left: 5px;
-}
 
 /***** Navigation *****/
-div.breadcrumbs {
-  background: transparent;
+ul.breadcrumb {
+  background-color: white;
   border: 0;
   padding: 0;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   color: $help_text;
   font: {
     size: 1.3em;
@@ -62,7 +26,8 @@ div.breadcrumbs {
     text-decoration: none;
 
     &:hover {
-      color: $alt_link_hover; 
+      color: $alt_link_hover;
+      text-decoration: none;
     }
   }
 }
@@ -74,7 +39,7 @@ ul.nav_list {
   li {
     font-size: 1.3em;
     list-style-type: none;
-    margin: 6px 0 6px 0;
+    margin: 6px 6px 6px 0;
     padding: 0;
   }
 
@@ -83,12 +48,32 @@ ul.nav_list {
   }
 
   li:hover {
-    color: $nav_link_hover;
-    cursor: pointer;
     border: 1px solid $nav_link_hover;
     border-width: 0 4px 0 0;
-    transition: color 0.2s ease 0s;
     transition: border 0.1s ease 0s;
+  }
+
+  li.active {
+    border: 1px solid $nav_link_hover;
+    border-width: 0 6px 0 0;
+
+    a {
+      color: $nav_link_hover;
+    }
+  }
+
+  a {
+    display: block;
+    transition: color 0.2s ease 0s;
+
+    &:link {
+      color: $nav_link;
+      text-decoration: none;
+    }
+
+    &:hover {
+      color: $nav_link_hover;
+    }
   }
 }
 
@@ -98,105 +83,118 @@ ul.sub_nav_list {
   margin: 0;
 }
 
-/***** Change List *****/
-#content-related {
-  float: none;
+/***** Change list styles *****/
+div.search-container {
+  margin: 0;
+}
+
+select.search-filter, div.actions select {
+  margin-top: 0;
+  margin-bottom: 5px;
+  font-size: 11px;
+  height: 30px;
+
+  @extend .text_field
+}
+
+.search-container .active {
+  box-shadow: none;
+  border-color: $color_1;
+}
+
+#searchbar {
+  margin-top: 0;
+  margin-bottom: 5px;
+  font-size: 11px;
+  height: 30px;
+  width: 150px;
   box-sizing: border-box;
-  margin: 0;
-  padding-left: 5px;
-  width: 100%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+
+  @extend .text_field
 }
 
-#changelist-filter {
-  background: transparent;
-  position: relative;
-  width: 100%;
+input.admin_button, button.admin_button, a.admin_button {
+  font-size: 1em;
+  margin-top: 0;
+  margin-bottom: 5px;
+  padding: 5px 10px 5px 10px;
+  line-height: 20px;
 }
 
-.change-list .filtered .results, .change-list .filtered .paginator, .filtered #toolbar, .filtered div.xfull {
-  margin-right: 0 !important;
+a.admin_button:hover {
+  color: rgba(0,0,0,.8);
 }
 
-.filtered .actions {
-  margin-right: 0 !important;
-  border-right: none;
+div.object-tools {
+  float: none;
+  margin-bottom: 0;
+  text-align: right;
 }
 
-input#searchbar {
-  margin: 0;
-}
+.table thead th {
+  background-image: none;
+  background-color: adjust-lightness($color_2, 10);
+  text-shadow: none;
+  box-shadow: none;
 
-#toolbar {
-  margin-right: 0px;
-}
-
-.list_fields {
-  margin: 20px 0 20px 0;
-}
-
-#changelist table {
-  thead {
-    th {
-      background-color: $color_5;
-      padding: 10px;
-    }
-
-    th:first-of-type {
-      @include border-top-left-radius(5px);
-    }
-
-    th:last-of-type {
-      @include border-top-right-radius(5px);
-      border-right: none;
-    }
+  &:hover {
+    background-color: adjust-lightness($color_2, 15);
   }
 
-  tbody {
-    @include border-bottom-radius(5px);
-
-    th, td {
-      padding: 8px;
-    }
-
-    tr:last-of-type {
-      th, td {
-        border-bottom: 1px solid #E0E0E0;
-      }
-
-      td:last-of-type {
-        border-right: 1px solid #E0E0E0;
-        @include border-bottom-right-radius(5px);
-      }
-    }
+  &.sorted {
+    background-image: none;
+    background-color: adjust-lightness($color_2, 15);
   }
-}
 
-th.sortable a {
-  &:link {
+  a {
     color: white;
-    text-decoration: none;
-    font: {
-      size: 1.3em;
-      weight: 400;
-      family: $title_fonts;
+    font-size: 1.2em;
+    font-family: $title_fonts;
+    font-weight: 400;
+    text-shadow: none;
+
+    &:hover {
+      color: $alt_link_hover;
+      text-decoration: none;
+    }
+  }
+
+  .sortoptions {
+    font-weight: 300;
+
+    a:link {
+      background-image: none;
+      opacity: 1;
+      color: white;
+    }
+
+    a:hover {
+      color: $alt_link_hover;
+      opacity: 1;
+    }
+
+    .sortpriority {
+      color: white;
     }
   }
 }
 
-#changelist .actions {
-  background: transparent;
-  margin: 20px 0 20px 0;
-  border: none;
-  padding: 0;
+.table tbody {
+  a {
+    &:link {
+      color: $standard_link;
+      text-decoration: underline;
+    }
 
-  span.action-counter {
-    color: $color_4;
+    &:hover {
+      color: $alt_link_hover;
+      text-decoration: none;
+    }
   }
 }
 
-#changelist .paginator {
-  background: transparent;
-  border: none;
-  padding: 0;
-  margin: 20px 0 20px 0;
+form#changelist-search {
+  margin-bottom: 15px;
 }

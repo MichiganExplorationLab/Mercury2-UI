@@ -1,30 +1,36 @@
 {% load i18n %}
 
 <ul class="nav_list">
+  {% url 'admin:index' as dashboard %}
   <li class="nav_dashboard">
-    <span class="glyphicon glyphicon-th"></span> {% trans 'Dashboard' %}
+    <a href="{{ dashboard }}"><span class="glyphicon glyphicon-th"></span> {% trans 'Dashboard' %}</a>
   </li>
-  <li class="nav_users">
-    <span class="glyphicon glyphicon-user"></span> {% trans 'Users' %}
 
+  {% url 'admin:operators_stationuser_changelist' as users_panel %}
+  <li class="nav_users {% if users_panel in request.path %}active{% endif %}">
+    <a href="{{ users_panel }}"><span class="glyphicon glyphicon-user"></span> {% trans 'Users' %}</a>
     <ul class="sub_nav_list">
       <li>{% trans 'Groups' %}</li>
     </ul>
   </li>
+  
   <li class="nav_schedule">
-    <span class="glyphicon glyphicon-calendar"></span> {% trans 'Schedule' %}
+    <a href="#"><span class="glyphicon glyphicon-calendar"></span> {% trans 'Schedule' %}</a>
   </li>
+  
   <li class="nav_substations">
-    <span class="glyphicon glyphicon-map-marker"></span> {% trans 'Substations' %}
+    <a href="#"><span class="glyphicon glyphicon-map-marker"></span> {% trans 'Substations' %}</a>
 
     <ul class="sub_nav_list">
       <li>{% trans 'Pipelines' %}</li>
     </ul>
   </li>
+  
   <li class="nav_settings">
-    <span class="glyphicon glyphicon-cog"></span> {% trans 'Settings' %}
+    <a href="#"><span class="glyphicon glyphicon-cog"></span> {% trans 'Settings' %}</a>
   </li>
+  
   <li class="nav_stats">
-    <span class="glyphicon glyphicon-stats"></span> {% trans 'Statistics' %}
+    <a href="#"><span class="glyphicon glyphicon-stats"></span> {% trans 'Statistics' %}</a>
   </li>
 </ul>

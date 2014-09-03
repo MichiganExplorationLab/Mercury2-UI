@@ -13,6 +13,10 @@ partials that define common interface attributes.
 @import "partials/forms";
 
 /***** Main Layout Containers *****/
+body {
+  background-color: white;
+}
+
 @include sticky-footer($footer_height, "#layout_wrapper", "#layout_wrapper_footer", "#footer");
 
 /***** Page Headers *****/

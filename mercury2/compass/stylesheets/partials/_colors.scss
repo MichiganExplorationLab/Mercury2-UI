@@ -5,18 +5,18 @@ This SCSS file defines the various colors commonly used throughout the Mercury2 
 */
 
 /***** Palate Colors *****/
-$color_1: #3492CD; // Light blue for accents, link hovers, etc.
+$color_1: #3492CD; // Light blue for accents, buttons, and link hovers
 $color_2: #3A3A3A; // Blue-gray background for the footer section
 $color_3: #292929; // Dark gray for page headers, etc.
 $color_4: #666666; // Light gray for help text, notices, etc.
-$color_5: #BAC8C9; // Lighter blue-gray
+$color_5: adjust-lightness($color_2, 20); // A lighter blue-gray for table headers
 
 /***** Global Text *****/
 $text_headers: $color_3;
 $help_text: $color_4;
 $error_text: #C40808;
 $standard_link: black;
-$standard_link_hover: $color_4;
+$standard_link_hover: $color_1;
 $alt_link_hover: $color_1;
 
 /***** Header *****/
@@ -34,4 +34,6 @@ $footer_link_hover: $alt_link_hover;
 $input_focus: $color_1;
 
 /***** Admin Panel *****/
+$admin_button: $color_3;
+$nav_link: $color_3;
 $nav_link_hover: $color_1;
