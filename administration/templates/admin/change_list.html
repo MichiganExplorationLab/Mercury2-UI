@@ -2,6 +2,8 @@
 {% load i18n admin_static admin_list admin_urls suit_list suit_tags %}
 {% load url from future %}
 
+{% block title %}{{ opts.verbose_name_plural|capfirst }} - {{ block.super }}{% endblock %}
+
 {% block extrastyle %}
   {{ block.super }}
   {#  <link rel="stylesheet" type="text/css" href="{% static "admin/css/changelists.css" %}" />#}

@@ -40,11 +40,30 @@ form.pure-form, form.pure-form-stacked, form.standard {
   margin: 20px 0 20px 0;
 }
 
-.button_standard {
-  background: $color_1;
-  color: white;
+.button_base {
   font-size: 1.4em;
   padding: 14px;
+}
+
+.button_standard {
+  background: $primary_button;
+  color: white;
+
+  @extend .button_base
+}
+
+.button_okay {
+  background: $okay_button;
+  color: white;
+  
+  @extend .button_base
+}
+
+.button_danger {
+  background: $danger_button;
+  color: white;
+  
+  @extend .button_base
 }
 
 p.form_instructions {
