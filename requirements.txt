@@ -1,6 +1,7 @@
 psycopg2
-https://www.djangoproject.com/download/1.7c2/tarball/
+Django==1.7
 -e git+https://github.com/bradjasper/django-jsonfield.git@postgresql#egg=django-jsonfield
 djangorestframework
 django-allauth
 django-suit
+django-debug-toolbar

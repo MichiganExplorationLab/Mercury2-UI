@@ -37,36 +37,35 @@ ul.breadcrumb {
 ul.nav_list {
   padding: 0;
   margin: 0 5px 0 5px;
+  font-family: $title_fonts;
 
   li {
     font-size: 1.3em;
     list-style-type: none;
     margin: 6px 6px 6px 0;
     padding: 0;
-  }
 
-  li:first-child {
-    margin-top: 0;
-  }
-
-  li:hover {
-    border: 1px solid $nav_link_hover;
-    border-width: 0 4px 0 0;
-    transition: border 0.1s ease 0s;
-  }
-
-  li.active {
-    border: 1px solid $nav_link_hover;
-    border-width: 0 6px 0 0;
-
-    a {
-      color: $nav_link_hover;
+    span {
+      margin-right: 2px;
     }
+  }
+
+  > li:first-child {
+    margin-top: 0;
   }
 
   a {
     display: block;
-    transition: color 0.2s ease 0s;
+
+    &.active {
+      border: 1px solid $nav_link_hover;
+      border-width: 0 6px 0 0;
+      color: $nav_link_hover;
+
+      &:hover {
+        transition: border 0s;
+      }
+    }
 
     &:link {
       color: $nav_link;
@@ -75,14 +74,42 @@ ul.nav_list {
 
     &:hover {
       color: $nav_link_hover;
+      border: 1px solid $nav_link_hover;
+      border-width: 0 4px 0 0;
+      transition: border 0.1s ease 0s;
     }
   }
 }
 
 ul.sub_nav_list {
-  display: none;
-  padding: 0;
+  padding: 0 0 0 19px;
   margin: 0;
+
+  li {
+    margin: 4px 4px 4px 0;
+  }
+
+  a {
+    color: $nav_link_sub;
+
+    font: {
+      size: 0.8em;
+    }
+
+    &.active {
+      border: none;
+      color: $nav_link_hover;
+    }
+
+    &:link {
+      color: $nav_link_sub;
+    }
+
+    &:hover{
+      color: $nav_link_hover;
+      border: none;
+    }
+  }
 }
 
 /***** General Bootstrap overrides *****/

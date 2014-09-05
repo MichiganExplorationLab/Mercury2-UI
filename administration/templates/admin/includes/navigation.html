@@ -3,14 +3,17 @@
 <ul class="nav_list">
   {% url 'admin:index' as dashboard %}
   <li class="nav_dashboard">
-    <a href="{{ dashboard }}"><span class="glyphicon glyphicon-th"></span> {% trans 'Dashboard' %}</a>
+    <a href="{{ dashboard }}" class="{% if dashboard == request.path %}active{% endif %}"><span class="glyphicon glyphicon-th"></span> {% trans 'Dashboard' %}</a>
   </li>
 
   {% url 'admin:operators_stationuser_changelist' as users_panel %}
-  <li class="nav_users {% if users_panel in request.path %}active{% endif %}">
-    <a href="{{ users_panel }}"><span class="glyphicon glyphicon-user"></span> {% trans 'Users' %}</a>
+  {% url 'admin:auth_group_changelist' as groups_panel %}
+  <li class="nav_users">
+    <a href="{{ users_panel }}" class="{% if users_panel in request.path %}active{% endif %}"><span class="glyphicon glyphicon-user"></span> {% trans 'Users' %}</a>
     <ul class="sub_nav_list">
-      <li>{% trans 'Groups' %}</li>
+      <li>
+        <a href="{{ groups_panel }}" class="{% if groups_panel in request.path %}active{% endif %}">{% trans 'Groups' %}</a>
+      </li>
     </ul>
   </li>
   
@@ -22,7 +25,9 @@
     <a href="#"><span class="glyphicon glyphicon-map-marker"></span> {% trans 'Substations' %}</a>
 
     <ul class="sub_nav_list">
-      <li>{% trans 'Pipelines' %}</li>
+      <li>
+        <a href="#">{% trans 'Pipelines' %}</a>
+      </li>
     </ul>
   </li>
   

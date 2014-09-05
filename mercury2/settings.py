@@ -35,6 +35,7 @@ INSTALLED_APPS = (
   'allauth',
   'allauth.account',
   'suit',
+  'debug_toolbar.apps.DebugToolbarConfig',
   'django.contrib.sites',
   'django.contrib.admin',
   'django.contrib.auth',
