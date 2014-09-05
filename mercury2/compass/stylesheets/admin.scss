@@ -194,6 +194,15 @@ div.object-tools {
       color: white;
     }
   }
+
+  span {
+    color: white;
+    font: {
+      family: $title_fonts;
+      size: 1.2em;
+      weight: 300;
+    }
+  }
 }
 
 .table tbody {
@@ -390,6 +399,7 @@ h2.legend, .form-horizontal fieldset .legend {
   @extend .text_field
 }
 
+/* Datetime selection widget */
 p.datetime { 
   margin-top: 0;
 }
