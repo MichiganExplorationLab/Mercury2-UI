@@ -4,6 +4,7 @@ This module includes models related to ground station and satellite operators su
 
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import AbstractUser
+from django.contrib.contenttypes.fields import GenericRelation
 from django.db import models
 
 class StationUser(AbstractUser):
@@ -15,3 +16,4 @@ class StationUser(AbstractUser):
   region = models.CharField(_('region'), help_text=_('The region or state that you live in.'), max_length=50, 
                             blank=True)
   country = models.CharField(_('country'), max_length=2, blank=True)
+  events = GenericRelation('Event')

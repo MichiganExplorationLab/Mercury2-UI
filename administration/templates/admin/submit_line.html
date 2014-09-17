@@ -1,0 +1,9 @@
+{% load i18n %}
+
+{% if show_save %}<button type="submit" class="pure-button admin_button button_standard" name="_save">{% trans 'Save' %}</button>{% endif %}
+{% if show_save_and_continue %}<button type="submit" name="_continue" class="pure-button admin_button button_standard">{% trans 'Save and Edit' %}</button>{% endif %}
+{% if show_save_as_new %}<button type="submit" name="_saveasnew" class="pure-button admin_button button_standard">{% trans 'Save As New' %}</button>{%endif%}
+{% if show_save_and_add_another %}<button type="submit" name="_addanother" class="pure-button admin_button button_standard">{% trans 'Save and Add Another' %}</button>{% endif %}
+
+{% if show_delete_link %}<a href="delete/" class="pure-button admin_button button_danger">{% trans "Delete" %}</a>
+{% endif %}

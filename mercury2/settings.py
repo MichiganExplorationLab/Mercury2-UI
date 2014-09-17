@@ -20,7 +20,6 @@ SITE_ID = 1
 AUTH_USER_MODEL = 'operators.StationUser'
 ROOT_URLCONF = 'mercury2.urls'
 WSGI_APPLICATION = 'mercury2.wsgi.application'
-AUTH_USER_MODEL = 'operators.StationUser'
 ALLOWED_HOSTS = []
 
 STATIC_URL = '/static/'
@@ -28,20 +27,23 @@ STATIC_URL = '/static/'
 INSTALLED_APPS = (
   # Mercury2 applications
   'mercury2',
-  'administration',
   'operators',
   'substations',
+  'administration',
+  'events',
 
   # Django and external applications
   'allauth',
   'allauth.account',
+  'suit',
+  'debug_toolbar.apps.DebugToolbarConfig',
   'django.contrib.sites',
   'django.contrib.admin',
   'django.contrib.auth',
   'django.contrib.contenttypes',
   'django.contrib.sessions',
   'django.contrib.messages',
-  'django.contrib.staticfiles'
+  'django.contrib.staticfiles',
 )
 
 MIDDLEWARE_CLASSES = (

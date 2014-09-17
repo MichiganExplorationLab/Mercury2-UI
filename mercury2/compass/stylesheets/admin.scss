@@ -6,51 +6,17 @@ This SCSS file defines the custom styles for the Mercury2 UI administration pane
 
 @import "compass";
 @import "partials/colors";
-@import "partials/glyphicons";
+@import "partials/text";
 @import "partials/forms";
-
-li, dt, dd {
-  line-height: inherit;
-}
-
-/***** Forms *****/
-form.admin_filters {
-  select {
-    vertical-align:top;
-  }
-
-  #searchbar {
-    width: 150px;
-  }
-}
-
-input[type="text"], input[type="password"], input[type="email"], select {
-  @extend .text_field;
-}
-
-select.list_filter {
-  margin: 0;
-  padding: 4px;
-}
-
-#changelist .actions select {
-  @extend .text_field;
-  margin: 0;
-  padding: 4px;
-}
-
-.button_admin_changelist {
-  background: $color_1;
-  padding: 6px;
-  margin-left: 5px;
-}
+@import "partials/glyphicons";
 
 /***** Navigation *****/
-div.breadcrumbs {
-  background: transparent;
+ul.breadcrumb {
+  background-color: white;
   border: 0;
   padding: 0;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  margin-top: 0px;
   color: $help_text;
   font: {
     size: 1.3em;
@@ -62,7 +28,8 @@ div.breadcrumbs {
     text-decoration: none;
 
     &:hover {
-      color: $alt_link_hover; 
+      color: $alt_link_hover;
+      text-decoration: none;
     }
   }
 }
@@ -70,133 +37,419 @@ div.breadcrumbs {
 ul.nav_list {
   padding: 0;
   margin: 0 5px 0 5px;
+  font-family: $title_fonts;
 
   li {
     font-size: 1.3em;
     list-style-type: none;
-    margin: 6px 0 6px 0;
+    margin: 6px 6px 6px 0;
     padding: 0;
+
+    span {
+      margin-right: 2px;
+    }
   }
 
-  li:first-child {
+  > li:first-child {
     margin-top: 0;
   }
 
-  li:hover {
-    color: $nav_link_hover;
-    cursor: pointer;
-    border: 1px solid $nav_link_hover;
-    border-width: 0 4px 0 0;
-    transition: color 0.2s ease 0s;
-    transition: border 0.1s ease 0s;
+  a {
+    display: block;
+
+    &.active {
+      border: 1px solid $nav_link_hover;
+      border-width: 0 6px 0 0;
+      color: $nav_link_hover;
+
+      &:hover {
+        transition: border 0s;
+      }
+    }
+
+    &:link {
+      color: $nav_link;
+      text-decoration: none;
+    }
+
+    &:hover {
+      color: $nav_link_hover;
+      border: 1px solid $nav_link_hover;
+      border-width: 0 4px 0 0;
+      transition: border 0.1s ease 0s;
+    }
   }
 }
 
 ul.sub_nav_list {
-  display: none;
-  padding: 0;
+  padding: 0 0 0 19px;
   margin: 0;
-}
 
-/***** Change List *****/
-#content-related {
-  float: none;
-  box-sizing: border-box;
-  margin: 0;
-  padding-left: 5px;
-  width: 100%;
-}
-
-#changelist-filter {
-  background: transparent;
-  position: relative;
-  width: 100%;
-}
-
-.change-list .filtered .results, .change-list .filtered .paginator, .filtered #toolbar, .filtered div.xfull {
-  margin-right: 0 !important;
-}
-
-.filtered .actions {
-  margin-right: 0 !important;
-  border-right: none;
-}
-
-input#searchbar {
-  margin: 0;
-}
-
-#toolbar {
-  margin-right: 0px;
-}
-
-.list_fields {
-  margin: 20px 0 20px 0;
-}
-
-#changelist table {
-  thead {
-    th {
-      background-color: $color_5;
-      padding: 10px;
-    }
-
-    th:first-of-type {
-      @include border-top-left-radius(5px);
-    }
-
-    th:last-of-type {
-      @include border-top-right-radius(5px);
-      border-right: none;
-    }
+  li {
+    margin: 4px 4px 4px 0;
   }
 
-  tbody {
-    @include border-bottom-radius(5px);
+  a {
+    color: $nav_link_sub;
 
-    th, td {
-      padding: 8px;
-    }
-
-    tr:last-of-type {
-      th, td {
-        border-bottom: 1px solid #E0E0E0;
-      }
-
-      td:last-of-type {
-        border-right: 1px solid #E0E0E0;
-        @include border-bottom-right-radius(5px);
-      }
-    }
-  }
-}
-
-th.sortable a {
-  &:link {
-    color: white;
-    text-decoration: none;
     font: {
-      size: 1.3em;
-      weight: 400;
-      family: $title_fonts;
+      size: 0.8em;
+    }
+
+    &.active {
+      border: none;
+      color: $nav_link_hover;
+    }
+
+    &:link {
+      color: $nav_link_sub;
+    }
+
+    &:hover{
+      color: $nav_link_hover;
+      border: none;
     }
   }
 }
 
-#changelist .actions {
-  background: transparent;
-  margin: 20px 0 20px 0;
-  border: none;
-  padding: 0;
+/***** General Bootstrap overrides *****/
+textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus, .uneditable-input:focus {
+  box-shadow: none;
+}
 
-  span.action-counter {
-    color: $color_4;
+.alert {
+  margin-bottom: 10px;
+}
+
+.alert:last-of-type {
+  margin-bottom: 15px;
+}
+
+/***** Change list styles *****/
+div.search-container {
+  margin: 0;
+}
+
+select.search-filter, div.actions select {
+  margin-top: 0;
+  margin-bottom: 5px;
+  font-size: 11px;
+  height: 30px;
+
+  @extend .text_field
+}
+
+.search-container .active {
+  box-shadow: none;
+  border-color: $color_1;
+}
+
+#searchbar {
+  margin-top: 0;
+  margin-bottom: 5px;
+  font-size: 11px;
+  height: 30px;
+  width: 150px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+
+  @extend .text_field
+}
+
+input.admin_button, button.admin_button, a.admin_button {
+  font-size: 1em;
+  margin-top: 0;
+  margin-bottom: 5px;
+  padding: 5px 10px 5px 10px;
+  line-height: 20px;
+}
+
+a.admin_button:hover {
+  color: rgba(0,0,0,.8);
+}
+
+div.object-tools {
+  float: none;
+  margin-bottom: 0;
+  text-align: right;
+}
+
+.table thead th {
+  background-image: none;
+  background-color: adjust-lightness($color_2, 10);
+  text-shadow: none;
+  box-shadow: none;
+
+  &:hover {
+    background-color: adjust-lightness($color_2, 15);
+  }
+
+  &.sorted {
+    background-image: none;
+    background-color: adjust-lightness($color_2, 15);
+  }
+
+  a {
+    color: white;
+    font-size: 1.2em;
+    font-family: $title_fonts;
+    font-weight: 400;
+    text-shadow: none;
+
+    &:hover {
+      color: $alt_link_hover;
+      text-decoration: none;
+    }
+  }
+
+  .sortoptions {
+    font-weight: 300;
+
+    a:link {
+      background-image: none;
+      opacity: 1;
+      color: white;
+    }
+
+    a:hover {
+      color: $alt_link_hover;
+      opacity: 1;
+    }
+
+    .sortpriority {
+      color: white;
+    }
+  }
+
+  span {
+    color: white;
+    font: {
+      family: $title_fonts;
+      size: 1.2em;
+      weight: 300;
+    }
   }
 }
 
-#changelist .paginator {
-  background: transparent;
+.table tbody {
+  a {
+    &:link {
+      color: $standard_link;
+      text-decoration: underline;
+    }
+
+    &:hover {
+      color: $alt_link_hover;
+      text-decoration: none;
+    }
+  }
+}
+
+form#changelist-search {
+  margin-bottom: 15px;
+}
+
+/***** Change form styles *****/
+.inner-right-column {
+  width: 150px;
+}
+
+.inner-right-column.fixed {
+  position: fixed;
+}
+
+.box, .well {
+  padding: 5px 10px 5px 10px;
   border: none;
+  background-color: transparent;
+  box-shadow: none;
+
+  button {
+    width: 100%;
+  }
+
+  a:hover {
+    color: white;
+  }
+}
+
+.save-box {
+  margin-bottom: 10px;
+
+  a {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+  }
+}
+
+.menu-box li a {
+  color: $nav_link;
+  border: none;
+  padding: 5px;
+  font-size: 11px;
+
+  &:hover {
+    color: $nav_link_hover;
+    background-color: transparent;
+  }
+}
+
+.box-title {
+  margin-left: 10px;
+
+  font: {
+    family: $title_fonts;
+    size: 1.5em;
+    weight: 300;
+  }
+}
+
+.tab-content {
+  overflow: visible;
+}
+
+.form-horizontal fieldset {
+  box-shadow: none;
+  border: none;
+}
+
+h2.legend, .form-horizontal fieldset .legend {
+  color: $text_headers;
   padding: 0;
-  margin: 20px 0 20px 0;
+  text-shadow: none;
+  font: {
+    family: $title_fonts;
+    weight: 300;
+    size: 1.75em;
+  }
+}
+
+.required:after {
+  color: $error_text !important;
+}
+
+.form-horizontal fieldset {
+  background-clip: border-box;
+  border-radius: 0;
+  box-shadow: none;
+  display: block;
+  padding: 0;
+  margin: 15px 0 0 0;
+}
+
+.form-horizontal fieldset .legend {
+  margin: 0 0 5px 0;
+  position: relative;
+  top: auto;
+}
+
+.form-horizontal .control-group {
+  display: block;
+
+  & > div {
+    display: block;
+  }
+}
+
+.form-horizontal .control-group .controls {
+  background-color: transparent;
+}
+
+.form-horizontal .control-group .control-label {
+  border: none;
+  display: block;
+  min-width: 0;
+  padding: 15px 5px 5px 5px;
+}
+
+.form-horizontal .control-group .controls {
+  border: none;
+  margin-left: 0;
+  display: block;
+  padding: 5px 5px 5px 15px;
+}
+
+.form-horizontal .control-group:first-child .controls, .form-horizontal .control-group:first-of-type .controls {
+  padding-top: 5px;
+}
+
+.form-horizontal .control-group:first-child .control-label, .form-horizontal .control-group:first-of-type .control-label {
+  padding-top: 15px;
+}
+
+.form-horizontal .control-group:last-child .control-label, .form-horizontal .control-group:last-of-type .control-label {
+  padding-bottom: 5px;
+}
+
+.form-horizontal .control-group:last-child .controls, .form-horizontal .control-group:last-of-type .controls {
+  padding-bottom: 5px;
+}
+
+.form-horizontal .control-group .help-block, .form-horizontal .control-group .help-inline {
+  color: $help_text;
+}
+
+/* Many to Many selector widget */
+.form-horizontal .control-group .controls .selector .selector-chooser {
+  margin: 75px 0 0 0;
+  padding: 0;
+}
+
+.selector-available h2, .selector-chooser h2, .selector-chosen h2 {
+  font: {
+    family: $title_fonts;
+    size: 1.3em;
+    weight: 400;
+  }
+}
+
+.form-horizontal .control-group .controls .selector .selector-chooser li a:hover {
+  border: none;
+}
+
+.form-horizontal .control-group .controls .selector .selector-available a:not(.active), .form-horizontal .control-group .controls .selector .selector-chosen a:not(.active), .selector a {
+  text-decoration: none;
+  color: $help_text;
+
+  &:hover {
+    color: $alt_link_hover;
+  }
+}
+
+.selector-available select {
+  @extend .text_field
+}
+
+.selector-chosen select {
+  @extend .text_field
+}
+
+/* Datetime selection widget */
+p.datetime { 
+  margin-top: 0;
+}
+
+span.datetimeshortcuts {
+  color: $help_text;
+  
+  img {
+    margin-left: 10px;
+  }
+
+  a {
+    color: $help_text;
+    border: none;
+    text-decoration: none;
+
+    &:hover { 
+      color: $alt_link_hover;
+    }
+  }
+}
+
+/***** "Add new" page *****/
+.form-horizontal fieldset.wide .control-label {
+  min-width: 0;
 }

@@ -31,5 +31,18 @@
   </div>
 </div>
 
+{% block layout_messages %}
+  {% if messages %}
+    <div class="content_container">
+      {% for message in messages %}
+        <div class="alert alert-{% firstof message.tags 'info' %}">
+          {{ message }}
+          <span class="glyphicon glyphicon-remove"></span>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endblock %}
+
 {% block page_content %}{% endblock %}
 {% endblock %}
