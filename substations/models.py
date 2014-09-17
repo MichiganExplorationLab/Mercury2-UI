@@ -68,6 +68,11 @@ class Substation(models.Model):
                                      blank=True,
                                      editable=False)
   commands = GenericRelation('Command')
+  events = GenericRelation('Event')
+  state = JSONField(help_text=_('A JSON object containing the substation\'s most recent state as reported by the '\
+                            'substation.'),
+                    blank=True,
+                    editable=False)
   configuration = JSONField(help_text=_('Contains the substation\'s configuration settings as defined in its '\
                                         'configuration.yml file.'),
                             blank=True,
@@ -105,6 +110,11 @@ class Pipeline(models.Model):
   substation = models.ForeignKey('Substation', 
                                  help_text=_('The substation that contains the pipeline.'))
   devices = models.ManyToManyField('Device')
+  events = GenericRelation('Event')
+  state = JSONField(help_text=_('A JSON object containing the pipeline\'s most recent state as reported by the '\
+                              'substation.'),
+                    blank=True,
+                    editable=False)
 
   class Meta:
     verbose_name = _('pipeline')
@@ -137,6 +147,11 @@ class Device(models.Model):
   substation = models.ForeignKey('Substation',
                                  help_text=_('The substation that the device belongs to.'))
   commands = GenericRelation('Command')
+  events = GenericRelation('Event')
+  state = JSONField(help_text=_('A JSON object containing the device\'s most recent state as reported by the '\
+                                'substation.'),
+                    blank=True,
+                    editable=False)
   configuration = JSONField(help_text=_('The device\'s static configuration as defined in its substation\'s '\
                                         'devices.yml file.'),
                             blank=True,

@@ -16,6 +16,8 @@
   {% if LANGUAGE_BIDI %}<link rel="stylesheet" type="text/css" href="{% block stylesheet_rtl %}{% static "admin/css/rtl.css" %}{% endblock %}"/>{% endif %}
 {% endblock %}
 
+
+
 {% block extrahead %}
   <link rel="stylesheet" type="text/css" href="{% static "css/admin.css" %}" />
   <script type="text/javascript">window.__admin_media_prefix__ = "{% filter escapejs %}{% static "admin/" %}{% endfilter %}";</script>
@@ -28,6 +30,8 @@
   <script src="{% static 'suit/js/suit.js' %}"></script>
 {% endblock %}
 
+{% block layout_messages %}{% endblock %}
+
 {% block page_content %}
   <div class="content_container">
     <div class="pure-g">
@@ -39,8 +43,8 @@
           {% if messages %}
             {% for message in messages %}
               <div class="alert alert-{% firstof message.tags 'info' %}">
-                <button class="close" data-dismiss="alert">×</button>
                 {{ message }}
+                <span class="glyphicon glyphicon-remove"></span>
               </div>
             {% endfor %}
           {% endif %}

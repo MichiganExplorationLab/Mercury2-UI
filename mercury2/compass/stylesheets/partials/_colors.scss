@@ -21,6 +21,14 @@ $standard_link: black;
 $standard_link_hover: $color_1;
 $alt_link_hover: $color_1;
 
+/***** Alert Colors *****/
+$alert_debug: $color_4;
+$alert_info: $color_1;
+$alert_success: $okay_color;
+$alert_warning: #F2CA27;
+$alert_error: $error_color;
+$alert_hover_bg: #FCFCFC;
+
 /***** Header *****/
 $header_link: black;
 $header_link_hover: $alt_link_hover;

@@ -30,6 +30,7 @@ INSTALLED_APPS = (
   'operators',
   'substations',
   'administration',
+  'events',
 
   # Django and external applications
   'allauth',

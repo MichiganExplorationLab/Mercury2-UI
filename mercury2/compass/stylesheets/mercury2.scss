@@ -11,6 +11,7 @@ partials that define common interface attributes.
 @import "partials/dimensions";
 @import "partials/text";
 @import "partials/forms";
+@import "partials/glyphicons";
 
 /***** Main Layout Containers *****/
 body {
@@ -146,6 +147,63 @@ ul.header_links li:last-of-type {
 
 #layout_wrapper_footer {
   margin-top: $footer_top_margin;
+}
+
+/* Alerts */
+.alert {
+  margin: 0 0 10px 0;
+  padding: 10px 10px 10px 10px;
+  border: {
+    style: solid;
+    width: 0 0 0 3px;
+    color: $alert_debug;
+  }
+  font: {
+    size: 1.2em;
+    weight: 300;
+  }
+  color: adjust-lightness($alert_debug, -15);
+  background-color: transparent;
+  border-radius: 0;
+  text-shadow: none;
+
+  &:hover {
+    border-width: 0 0 0 5px;
+    background-color: $alert_hover_bg;
+  }
+
+  .glyphicon {
+    float: right;
+
+    &:hover {
+      color: $color_1;
+      cursor: pointer;
+    }
+  }
+
+  &:last-of-type {
+    margin-bottom: 10px;
+  }
+}
+
+.alert-info {
+  border-color: $alert_info;
+  color: adjust-lightness($alert_info, -15);
+}
+
+.alert-success {
+  border-color: $alert_success;
+  color: adjust-lightness($alert_success, -15);
+}
+
+.alert-warning {
+  border-color: $alert_warning;
+  color: adjust-lightness($alert_warning, -15);
+}
+
+.alert-error {
+  border-color: $alert_error;
+  color: adjust-lightness($alert_error, -15);
 }
 
 /***** Footer Bar *****/
